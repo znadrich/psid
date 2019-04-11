@@ -118,7 +118,10 @@
             "5": "No; did/will not file",
             "8": "DK",
             "9": "NA; refused"
-        }
+        },
+        "remove_if":[
+            "DK", "NA; refused"
+        ]
     },
     "ER68420":{
         "name": "health_status",
