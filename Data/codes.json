@@ -1,0 +1,335 @@
+{
+    "ER66001":{
+        "name": "release_nb",
+		"type": "ID",
+        "values":{}
+    },
+    "ER66002":{
+        "name": "fam_int_id",
+		"type": "ID",
+        "values":{}
+    },
+    "ER66017":{
+        "name": "age",
+		"type": "Numeric",
+        "values":{
+            "Min": 14,
+            "Max": 120,
+            "Null": {
+                "999": "DK; NA"
+            }
+        }
+    },
+    "ER66018":{
+        "name": "sex",
+		"type": "Categorical",
+        "values":{
+            "1": "Male",
+            "2": "Female"
+        }
+    },
+    "ER66021":{
+        "name": "num_children",
+		"type": "Numeric",
+        "values":{
+            "Min": 0,
+            "Max": 18,
+            "Null": {}
+        }
+    },
+    "ER66024":{
+        "name": "marital",
+		"type": "Categorical",
+        "values":{
+            "1": "Married",
+            "2": "Never married",
+            "3": "Widowed",
+            "4": "Divorced, annulled",
+            "5": "Separated",
+            "8": "DK",
+            "9": "NA; refused"
+        }
+    },
+    "ER66025":{
+        "name": "life_satisfaction",
+		"type": "Categorical",
+        "values":{
+            "1": "Completely satisfied",
+            "2": "Very satisfied",
+            "3": "Somewhat satisfied",
+            "4": "Not very satisfied",
+            "5": "Not at all satisfied",
+            "8": "DK",
+            "9": "NA; refused",
+            "0": "Inap.: respondent was not Reference Person or Spouse/Partner" 
+        }
+    },
+    "ER66031":{
+        "name": "house_val",
+		"type": "Numeric",
+        "values":{
+            "Min": 1,
+            "Max": 9999997,
+            "Null": {
+                "9999998": "DK",
+                "9999999": "NA; refused",
+                "0": "Inap.: FU pays rent or FU neither owns nor rents (ER66030=5 or 8)"
+            }
+        }
+    },
+    "ER66170":{
+        "name": "weeks_employed_last_yr",
+		"type": "Numeric",
+        "values":{
+            "Min": 1,
+            "Max": 52,
+            "Null": {
+                "98": "DK",
+                "99": "NA; refused",
+                "0": "Inap.: did not work for money in 2016; can't compute weeks worked in 2016"
+            }
+        }
+    },
+    "ER66722":{
+        "name": "leisure_hrs",
+		"type": "Numeric",
+        "values":{
+            "Min": 0,
+            "Max": 111,
+            "Null": {
+                "998": "DK",
+                "999": "NA; refused",
+                "112": "112 hours or more"
+            }
+        }
+    },
+    "ER67756":{
+        "name": "itemize_tax",
+		"type": "Categorical",
+        "values":{
+            "1": "Yes",
+            "5": "No; did/will not file",
+            "8": "DK",
+            "9": "NA; refused"
+        }
+    },
+    "ER68420":{
+        "name": "health_status",
+		"type": "Categorical",
+        "values":{
+            "1": "Excellent",
+            "2": "Very good",
+            "3": "Good",
+            "4": "Fair",
+            "5": "Poor",
+            "8": "DK",
+            "9": "NA; refused"
+        }
+    },
+    "ER70882":{
+        "name": "race_ref_1",
+		"type": "Categorical",
+        "values":{
+            "1": "White",
+            "2": "Black, African-American, or Negro",
+            "3": "American Indian or Alaska Native",
+            "4": "Asian",
+            "5": "Native Hawaiian or Pacific Islander",
+            "8": "Other",
+            "9": "DK; NA; refused"
+        }
+    },
+    "ER70883":{
+        "name": "race_ref_2",
+		"type": "Categorical",
+        "values":{
+            "1": "White",
+            "2": "Black, African-American, or Negro",
+            "3": "American Indian or Alaska Native",
+            "4": "Asian",
+            "5": "Native Hawaiian or Pacific Islander",
+            "8": "Other",
+            "9": "DK; NA; refused",
+            "0": "Inap.: DK, NA, or RF to first mention (ER70882=9); no second mention"
+        }
+    },
+    "ER70884":{
+        "name": "race_ref_3",
+		"type": "Categorical",
+        "values":{
+            "1": "White",
+            "2": "Black, African-American, or Negro",
+            "3": "American Indian or Alaska Native",
+            "4": "Asian",
+            "5": "Native Hawaiian or Pacific Islander",
+            "8": "Other",
+            "9": "DK; NA; refused",
+            "0": "Inap.: DK, NA, or RF to first mention (ER70882=9); no second mention"
+        }
+    },
+    "ER70885":{
+        "name": "race_ref_4",
+		"type": "Categorical",
+        "values":{
+            "1": "White",
+            "2": "Black, African-American, or Negro",
+            "3": "American Indian or Alaska Native",
+            "4": "Asian",
+            "5": "Native Hawaiian or Pacific Islander",
+            "8": "Other",
+            "9": "DK; NA; refused",
+            "0": "Inap.: DK, NA, or RF to first mention (ER70882=9); no second mention"
+        }
+    },
+    "ER70941":{
+        "name": "religious_pref",
+		"type": "Categorical",
+        "values":{
+            "1": "Catholic",
+            "2": "Jewish",
+            "8": "Protestant",
+            "10": "Non-Christian/Muslim/Buddhist/Rastafarian, etc.",
+            "13": "Greek/Russian/Eastern Orthodox",
+            "97": "Other",
+            "99": "DK; NA; refused",
+            "0": "None/Athiest/Agnostic"
+        }
+    },
+    "ER70942":{
+        "name": "religious_denom",
+		"type": "Categorical",
+        "values":{
+            "3": "Baptist",
+            "4": "Lutheran",
+            "5": "Methodist/African Methodist",
+            "6": "Presbyterian",
+            "7": "Episcopalian",
+            "8": "Protestant unspecified",
+            "9": "Other Protestant",
+            "11": "Latter Day Saints; Mormon",
+            "12": "Jehovah's Witnesses",
+            "14": "Christian",
+            "15": "Unitarian; Universalist",
+            "16": "Christian Science",
+            "17": "Seventh Day Adventist",
+            "18": "Pentecostal/Assembly of God",
+            "19": "Amish; Mennonite",
+            "20": "Quaker; Friends",
+            "21": "Church of God",
+            "22": "United Church of Christ; Congregational Church",
+            "23": "Reformed, Christian Reformed",
+            "24": "Disciples of Christ; United Christian; First Christian; Christian Holiness",
+            "25": "Churches of Christ",
+            "97": "Other",
+            "99": "DK; NA; refused",
+            "0": "Inap.: not Protestant (ER70941 ne 08)"
+        }
+    },
+    "ER71040":{
+        "name": "donated_gt_25_charity_last_yr",
+		"type": "Categorical",
+        "values":{
+            "1": "Yes",
+            "5": "No",
+            "8": "DK",
+            "9": "NA; refused",
+            "0": "Inap.: respondent was not Reference Person or Spouse/Partner"
+        }
+    },
+    "ER71064":{
+        "name": "religious_attend_nb",
+		"type": "Numeric",
+        "values":{
+            "Min": 0,
+            "Max": 96,
+            "Null": {
+                "98": "DK",
+                "99": "NA; refused",
+                "97": "97 times or more"
+            }
+        }
+    },
+    "ER71065":{
+        "name": "religious_attend_freq",
+		"type": "Categorical",
+        "values":{
+            "2": "Day",
+            "3": "Week",
+            "4": "Two weeks",
+            "5": "Month",
+            "6": "Year",
+            "7": "Other",
+            "8": "DK",
+            "9": "NA; refused",
+            "0": "None*"
+        }
+    },
+    "ER71164":{
+        "name": "respondant_was",
+		"type": "Categorical",
+        "values":{
+            "1": "Current Reference Person",
+            "2": "Spouse or new spouse",
+            "3": "Partner or new partner",
+            "4": "Other FU member",
+            "7": "Proxy R; not a member of this FU",
+            "9": "NA"
+        }
+    },
+    "ER71330":{
+        "name": "taxable_income",
+		"type": "Numeric",
+        "values":{
+            "Min": -999997,
+            "Max": 9999997,
+            "Null": {
+                "0": "Inap.: no taxable income in 2016"
+            }
+        }
+    },
+    "ER71426":{
+        "name": "total_fam_income",
+		"type": "Numeric",
+        "values":{
+            "Min": -999997,
+            "Max": 9999997,
+            "Null": {
+                "0": "Inap.: no family money income in 2016"
+            }
+        }
+    },
+    "ER71538":{
+        "name": "completed_edu",
+		"type": "Categorical",
+        "values":{
+            "1": "1 grades",
+            "2": "2 grades",
+            "3": "3 grades",
+            "4": "4 grades",
+            "5": "5 grades",
+            "6": "6 grades",
+            "7": "7 grades",
+            "8": "8 grades",
+            "9": "9 grades",
+            "10": "10 grades",
+            "11": "11 grades",
+            "12": "12 grades",
+            "13": "13 grades",
+            "14": "14 grades",
+            "15": "15 grades",
+            "16": "16 grades",
+            "17": "17 grades",
+            "0": "Completed no grades of school",
+            "99": "DK; NA"
+        }
+    },
+    "ER71570":{
+        "name": "immigrant_fam_wt",
+		"type": "Numeric",
+        "values":{
+            "Min": 0.000,
+            "Max": 200.000,
+            "Null": {}
+        }
+    }
+}
