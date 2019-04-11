@@ -145,7 +145,7 @@
             "3": "American Indian or Alaska Native",
             "4": "Asian",
             "5": "Native Hawaiian or Pacific Islander",
-            "8": "Other",
+            "7": "Other",
             "9": "DK; NA; refused"
         },
         "remove_if":[
@@ -161,7 +161,7 @@
             "3": "American Indian or Alaska Native",
             "4": "Asian",
             "5": "Native Hawaiian or Pacific Islander",
-            "8": "Other",
+            "7": "Other",
             "9": "DK; NA; refused",
             "0": "Inap.: DK, NA, or RF to first mention (ER70882=9); no second mention"
         }
@@ -175,7 +175,7 @@
             "3": "American Indian or Alaska Native",
             "4": "Asian",
             "5": "Native Hawaiian or Pacific Islander",
-            "8": "Other",
+            "7": "Other",
             "9": "DK; NA; refused",
             "0": "Inap.: DK, NA, or RF to first mention (ER70882=9); no second mention"
         }
@@ -189,7 +189,7 @@
             "3": "American Indian or Alaska Native",
             "4": "Asian",
             "5": "Native Hawaiian or Pacific Islander",
-            "8": "Other",
+            "7": "Other",
             "9": "DK; NA; refused",
             "0": "Inap.: DK, NA, or RF to first mention (ER70882=9); no second mention"
         }
