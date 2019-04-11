@@ -202,12 +202,12 @@
 		"type": "Categorical",
         "values":{
             "1": "Catholic",
-            "2": "Jewish",
+            "2": "Other",
             "8": "Protestant",
-            "10": "Non-Christian/Muslim/Buddhist/Rastafarian, etc.",
-            "13": "Greek/Russian/Eastern Orthodox",
+            "10": "Other",
+            "13": "Other",
             "97": "Other",
-            "99": "DK; NA; refused",
+            "99": "Other",
             "0": "None/Athiest/Agnostic"
         }
     },
