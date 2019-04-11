@@ -2,6 +2,7 @@ library(ggplot2)
 library(dplyr)
 library(manipulate)
 library(corrplot)
+library(grid)
 
 source('R/functions.R')
 psid_clean <- read.csv('data/cleaned_data.csv')
@@ -11,7 +12,8 @@ not_predictors <- c(
   'X', 'release_nb', 
   'fam_int_id', 'donated',
   'donated_gt_25_charity_last_yr',
-  'immigrant_fam_wt'
+  'immigrant_fam_wt', 
+  'respondant_was'
 )
 predictors <- colnames(psid_clean)[!colnames(psid_clean) %in% not_predictors]
 numeric_vars <- predictors[sapply(psid_clean[, predictors], is.numeric)]
@@ -54,4 +56,9 @@ manipulate(
   cuts = slider(min = 2, max = 100),
   min = slider(min = 0, max = 100),
   filter_n = slider(min = 0, max = 1000)
+)
+
+manipulate(
+  categoricalPlot(df = train, char),
+  char = picker(as.list(categorical_vars))
 )

@@ -5,6 +5,12 @@ get <- function(col, dict){
   return(dict[col][[1]])
 }
 
+get_old_name <- function(dict, name){
+  bool <- sapply(dict, function(x) if(x == name) TRUE else FALSE)
+  old_name <- names(which(bool))
+  return(old_name)
+}
+
 # Retrieve the decoded column name
 get_col_names <- function(df, dict){
   names <- colnames(df)
@@ -73,6 +79,31 @@ clean_numeric <- function(colname, df, dict){
   return(new_vals)
 }
 
+apply_filters <- function(colname, df, dict){
+  vals <- df[, colname]
+  
+  old_nm <- get_old_name(dict, colname)
+  col_dict <- get(old_nm, dict)
+  remove_vals <- col_dict$remove_if
+  
+  for(filter in remove_vals){
+    df <- df[!(vals %in% remove_vals), ]
+    removed_n <- length(vals) - nrow(df)
+    vals <- df[, colname]
+    
+    str <- sprintf(
+      "%s = %s - Removed %s",
+      colname,
+      filter,
+      removed_n
+    )
+    
+    print(str)
+  }
+
+  return(df)
+}
+
 # Cleans whole dataframe
 # 1. Translate the default value to the decoded value for all categorical variables
 # 2. Remove commmas from numeric variables, e.g. 9,000 -> 9000
@@ -99,6 +130,15 @@ clean_df <- function(df, dict){
   
   colnames(df) <- get_col_names(df, dict)
   
+  for(categorical in categoricals){
+    lookup <- get(categorical, dict)
+    name <- lookup$name
+    df <- apply_filters(
+      colname = name,
+      df = df,
+      dict = dict
+    )
+  }
   return(df)
 }
 
