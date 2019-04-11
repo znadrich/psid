@@ -48,7 +48,10 @@
             "5": "Separated",
             "8": "DK",
             "9": "NA; refused"
-        }
+        },
+        "remove_if":[
+            "DK", "NA; refused"
+        ]
     },
     "ER66025":{
         "name": "life_satisfaction",
@@ -62,7 +65,11 @@
             "8": "DK",
             "9": "NA; refused",
             "0": "Inap.: respondent was not Reference Person or Spouse/Partner" 
-        }
+        },
+        "remove_if":[
+            "DK", "NA; refused",
+            "Inap.: respondent was not Reference Person or Spouse/Partner" 
+        ]
     },
     "ER66031":{
         "name": "house_val",
@@ -124,7 +131,10 @@
             "5": "Poor",
             "8": "DK",
             "9": "NA; refused"
-        }
+        },
+        "remove_if":[
+            "DK", "NA; refused"
+        ]
     },
     "ER70882":{
         "name": "race_ref_1",
@@ -137,7 +147,10 @@
             "5": "Native Hawaiian or Pacific Islander",
             "8": "Other",
             "9": "DK; NA; refused"
-        }
+        },
+        "remove_if":[
+            "DK; NA; refused"
+        ]
     },
     "ER70883":{
         "name": "race_ref_2",
@@ -234,7 +247,11 @@
             "8": "DK",
             "9": "NA; refused",
             "0": "Inap.: respondent was not Reference Person or Spouse/Partner"
-        }
+        },
+        "remove_if":[
+            "DK", "NA; refused",
+            "Inap.: respondent was not Reference Person or Spouse/Partner"
+        ]
     },
     "ER71064":{
         "name": "religious_attend_nb",
@@ -262,7 +279,10 @@
             "8": "DK",
             "9": "NA; refused",
             "0": "None*"
-        }
+        },
+        "remove_if":[
+            "DK", "NA; refused"
+        ]
     },
     "ER71164":{
         "name": "respondant_was",
@@ -274,7 +294,11 @@
             "4": "Other FU member",
             "7": "Proxy R; not a member of this FU",
             "9": "NA"
-        }
+        },
+        "remove_if":[
+            "Partner or new partner", "Other FU member",
+            "Proxy R; not a member of this FU", "NA"
+        ]
     },
     "ER71330":{
         "name": "taxable_income",
@@ -321,7 +345,10 @@
             "17": "College",
             "0": "Completed no grades of school",
             "99": "DK; NA"
-        }
+        },
+        "remove_if":[
+            "DK; NA"
+        ]
     },
     "ER71570":{
         "name": "immigrant_fam_wt",
