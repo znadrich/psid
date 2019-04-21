@@ -139,7 +139,7 @@ discretize_house_val <- function(df, n_buckets){
   
   decode_grp <- paste(buckets$min[grp]/1000, buckets$max[grp]/1000, sep = ", ") %>%
     paste0("[", ., ")")
-  decode_grp <- ifelse(decode_grp == "[0.001, 0)", "Does not own home", decode_grp)
+  decode_grp <- ifelse(decode_grp == "[-0.001, 0)", "Does not own home", decode_grp)
   return(decode_grp)
 }
 
