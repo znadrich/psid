@@ -13,8 +13,8 @@
         "name": "age",
 		"type": "Numeric",
         "values":{
-            "Min": 14,
-            "Max": 120,
+            "Min": 0,
+            "Max": 998,
             "Null": {
                 "999": "DK; NA"
             }
@@ -88,12 +88,11 @@
         "name": "weeks_employed_last_yr",
 		"type": "Numeric",
         "values":{
-            "Min": 1,
+            "Min": 0,
             "Max": 52,
             "Null": {
                 "98": "DK",
-                "99": "NA; refused",
-                "0": "Inap.: did not work for money in 2016; can't compute weeks worked in 2016"
+                "99": "NA; refused"
             }
         }
     },
@@ -310,7 +309,6 @@
             "Min": -999997,
             "Max": 9999997,
             "Null": {
-                "0": "Inap.: no taxable income in 2016"
             }
         }
     },
@@ -321,7 +319,6 @@
             "Min": -999997,
             "Max": 9999997,
             "Null": {
-                "0": "Inap.: no family money income in 2016"
             }
         }
     },

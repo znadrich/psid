@@ -104,6 +104,42 @@ apply_filters <- function(colname, df, dict){
   return(df)
 }
 
+discretize_house_val <- function(df, n_buckets){
+  buckets <- df %>%
+    filter(!is.na(house_val)) %>%
+    mutate(grp = ntile(house_val, n_buckets)) %>% 
+    group_by(grp) %>% 
+    summarize(
+      min = min(house_val), 
+      max = max(house_val)
+    ) %>%
+    rbind(c(0, -1, 0))
+  
+  df$house_val[is.na(df$house_val)] <- -1
+  
+  lookup <- sapply(
+    1:n_buckets, 
+    function(x) df$house_val >= buckets$min[x] & df$house_val < buckets$max[x]
+  )
+  
+  which_grp <- sapply(
+    1:ncol(lookup), 
+    function(x) ifelse(m[, x], x, -1)
+  )
+  
+  grp <- apply(
+    which_grp, 
+    FUN = max, 
+    MARGIN = 1
+  )
+  
+  grp <- ifelse(grp == -1, nrow(buckets), grp)
+  
+  decode_grp <- paste(buckets$min[grp]/1000, buckets$max[grp]/1000, sep = "-")
+  decode_grp <- ifelse(decode_grp == "-0.001-0", "Does not own home", decode_grp)
+  return(decode_grp)
+}
+
 # Cleans whole dataframe
 # 1. Translate the default value to the decoded value for all categorical variables
 # 2. Remove commmas from numeric variables, e.g. 9,000 -> 9000
@@ -139,6 +175,8 @@ clean_df <- function(df, dict){
       dict = dict
     )
   }
+  
+  df$house_val_thousand <- discretize_house_val(df, 8)
   return(df)
 }
 
