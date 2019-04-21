@@ -137,3 +137,49 @@ categoricalPlot <- function(df, char){
   
   multiplot(plt2, plt1, cols = 1)
 }
+
+design_matrix <- function(df, numeric_var, dummy, scale){
+  df <- predict(scale, df)
+  numerics <- df[, numeric_var]
+  cat <- predict(dummy, df)
+  
+  mm <- cbind(numerics, cat)
+  return(as.matrix(mm))
+}
+
+extract_base_col <- function(col){
+  base <- str_split(col, "\\.")[[1]][1]
+  return(base)
+}
+
+group_dummies <- function(cols){
+  keep_going <- TRUE
+  grps <- integer(length(cols))
+  grp <- 1
+  i <- 1
+  base_col <- map_chr(cols, extract_base_col)
+  
+  while(keep_going){
+    if(i == 1){
+      grps[i] <- grp
+    } else if (base_col[i] == base_col[i-1]){
+      grps[i] <- grp
+    } else {
+      grp <- grp + 1
+      grps[i] <- grp
+    }
+    
+    i <- i + 1
+    if(i > length(cols)) keep_going <- F
+  }
+  return(grps)
+}
+
+coefplot.oem <- function(coef){
+  data.frame(var = names(coef), beta = coef) %>%
+    filter(var != '(Intercept)') %>%
+    ggplot(aes(x = var, y = beta)) +
+    geom_point() +
+    coord_flip()
+}
+
