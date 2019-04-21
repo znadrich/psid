@@ -13,7 +13,8 @@ not_predictors <- c(
   'fam_int_id', 'donated',
   'donated_gt_25_charity_last_yr',
   'immigrant_fam_wt', 
-  'respondant_was'
+  'respondant_was',
+  'house_val'
 )
 predictors <- colnames(psid_clean)[!colnames(psid_clean) %in% not_predictors]
 numeric_vars <- predictors[sapply(psid_clean[, predictors], is.numeric)]

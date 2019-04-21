@@ -101,11 +101,10 @@
 		"type": "Numeric",
         "values":{
             "Min": 0,
-            "Max": 111,
+            "Max": 112,
             "Null": {
                 "998": "DK",
-                "999": "NA; refused",
-                "112": "112 hours or more"
+                "999": "NA; refused"
             }
         }
     },

@@ -143,6 +143,24 @@ discretize_house_val <- function(df, n_buckets){
   return(decode_grp)
 }
 
+drop_remaining_na <- function(df){
+  # Seperate our feature columns into numeric and categorical for ease of use
+  not_predictors <- c(
+    'X', 'release_nb', 
+    'fam_int_id', 'donated',
+    'donated_gt_25_charity_last_yr',
+    'immigrant_fam_wt', 
+    'respondant_was',
+    'house_val'
+  )
+  predictors <- colnames(df)[!colnames(df) %in% not_predictors]
+  keep <- complete.cases(df[, predictors])
+  
+  print(sprintf("Dropping %s rows.", sum(!keep)))
+  
+  df <- df[complete.cases(df[, predictors]), ]
+}
+
 # Cleans whole dataframe
 # 1. Translate the default value to the decoded value for all categorical variables
 # 2. Remove commmas from numeric variables, e.g. 9,000 -> 9000
@@ -180,6 +198,7 @@ clean_df <- function(df, dict){
   }
   
   df$house_val_thousand <- discretize_house_val(df, 8)
+  df <- drop_remaining_na(df)
   return(df)
 }
 
