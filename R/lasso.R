@@ -1,5 +1,4 @@
 library(oem)
-library(coefplot)
 library(doParallel)
 library(dplyr)
 library(ggplot2)
