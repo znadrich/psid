@@ -119,13 +119,15 @@ discretize_house_val <- function(df, n_buckets){
   
   lookup <- sapply(
     1:n_buckets, 
-    function(x) df$house_val >= buckets$min[x] & df$house_val < buckets$max[x]
+    function(x) (df$house_val >= buckets$min[x] & df$house_val < buckets$max[x]) 
   )
   
   which_grp <- sapply(
     1:ncol(lookup), 
     function(x) ifelse(m[, x], x, -1)
   )
+  
+  which_grp[df$house_val == max(df$house_val)] <- n_buckets
   
   grp <- apply(
     which_grp, 
@@ -135,8 +137,9 @@ discretize_house_val <- function(df, n_buckets){
   
   grp <- ifelse(grp == -1, nrow(buckets), grp)
   
-  decode_grp <- paste(buckets$min[grp]/1000, buckets$max[grp]/1000, sep = "-")
-  decode_grp <- ifelse(decode_grp == "-0.001-0", "Does not own home", decode_grp)
+  decode_grp <- paste(buckets$min[grp]/1000, buckets$max[grp]/1000, sep = ", ") %>%
+    paste0("[", ., ")")
+  decode_grp <- ifelse(decode_grp == "[0.001, 0)", "Does not own home", decode_grp)
   return(decode_grp)
 }
 
