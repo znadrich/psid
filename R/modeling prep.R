@@ -21,6 +21,8 @@ not_predictors <- c(
 
 psid_clean$log_age <- log(psid_clean$age)
 
+psid_clean <- relevel_factors(psid_clean)
+
 # Split the data into training and testing data
 data_split <- stratifiedSample(
   df = psid_clean,
@@ -36,11 +38,6 @@ predictors <- colnames(psid_clean)[!colnames(psid_clean) %in% not_predictors]
 numeric_vars <- predictors[sapply(psid_clean[, predictors], is.numeric)]
 categorical_vars <- predictors[sapply(psid_clean[, predictors], is.factor)]
 
-scale <- preProcess(
-  train[, numeric_vars],
-  method = c('scale')
-)
-
 dummy <- dummyVars(
   reformulate(categorical_vars, 'donated'),
   data = psid_clean,
@@ -50,8 +47,7 @@ dummy <- dummyVars(
 x_train <- design_matrix(
   train,
   numeric_vars,
-  dummy,
-  scale
+  dummy
 )
 y_train <- ifelse(train$donated == "Yes", 1, 0)
 

@@ -139,7 +139,7 @@ categoricalPlot <- function(df, char){
 }
 
 design_matrix <- function(df, numeric_var, dummy, scale){
-  df <- predict(scale, df)
+  #df <- predict(scale, df)
   numerics <- df[, numeric_var]
   cat <- predict(dummy, df)
   
@@ -181,5 +181,26 @@ coefplot.oem <- function(coef){
     ggplot(aes(x = var, y = beta)) +
     geom_point() +
     coord_flip()
+}
+
+relevel_factors <- function(df){
+  relevels <- matrix(c(
+    'marital', 'Married',
+    'life_satisfaction', 'Somewhat satisfied',
+    'house_val_thousand', 'Does not own home',
+    'health_status', 'Fair',
+    'religious_pref', 'None/Athiest/Agnostic',
+    'religious_attend_freq', 'Week',
+    'education', 'HS',
+    'race_ref_1', 'White'
+  ), ncol = 2, byrow = T)
+  
+  for(i in 1:nrow(relevels)){
+    col <- relevels[i, 1]
+    base <- relevels[i, 2]
+    df[, col] <- relevel(df[, col], base)
+  }
+  
+  return(df)
 }
 

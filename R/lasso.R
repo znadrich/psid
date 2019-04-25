@@ -4,7 +4,6 @@ library(dplyr)
 library(ggplot2)
 
 registerDoParallel(cores = 4)
-system.time(
 lasso.cv <- cv.oem(
   x = x_train,
   y = y_train,
@@ -12,11 +11,11 @@ lasso.cv <- cv.oem(
   family = 'binomial',
   groups = dummy_groups,
   intercept = TRUE,
-  standardize = F,
+  standardize = T,
   nfolds = 10,
   ncores = 4,
   parallel = TRUE
-))
+)
 stopImplicitCluster()
 
 plot(lasso.cv)
